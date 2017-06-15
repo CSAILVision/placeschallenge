@@ -9,7 +9,7 @@ for the detail of each task.
 
 ## Instructions for Each Task
 
-- Instruction for Scene Parsing Task is [here](sceneparsing/README.md)
-- Instruction for Instance Segmentation Task is [here](instancesegmentation/README.md)
-- Instruction for Semantic Boundary Segmentation Task is [here](boundarydetection/README.md)
+- Instruction for Scene Parsing Task is [here](sceneparsing)
+- Instruction for Instance Segmentation Task is [here](instancesegmentation)
+- Instruction for Semantic Boundary Segmentation Task is [here](boundarydetection)
 

@@ -1,4 +1,4 @@
-# Instruction for the Instance Segmentation Task in Places Challenge 2017
+# Instruction for the Instance Segmentation Task
 
 write what is the instance segmentation. how many categories, where are the lists, etc.
 
