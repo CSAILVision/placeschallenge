@@ -4,8 +4,8 @@ write what is the instance segmentation. how many categories, where are the list
 
 ## Data 
 
-- Download the images at http://placeschallenge.csail.mit.edu/data/ChallengeData2017/images.tar. Images are the same for all the three tasks in Places Challenge 2017.
-- Download the instance segmentation data at http://placeschallenge.csail.mit.edu/data/ChallengeData2017/instances.tar. After untarring the data file, the directory structure should be similar to the following,
+- Download the images at [here](http://placeschallenge.csail.mit.edu/data/ChallengeData2017/images.tar). Note that Images are the same for all the three tasks in Places Challenge 2017.
+- Download the instance segmentation data at [here](http://placeschallenge.csail.mit.edu/data/ChallengeData2017/instances.tar). After untarring the data file, the directory structure should be similar to the following,
 
 the training images:
 

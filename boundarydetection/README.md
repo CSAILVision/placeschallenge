@@ -4,8 +4,8 @@ write what is the semantic boundary detection. how many categories, where are th
 
 ## Data 
 
-- Download the images at http://placeschallenge.csail.mit.edu/data/ChallengeData2017/images.tar. Images are the same for all the three tasks in Places Challenge 2017.
-- Download the boundary annotation data at http://placeschallenge.csail.mit.edu/data/ChallengeData2017/boundaries.tar. After untarring the data file, the directory structure should be similar to the following,
+- Download the images at [here](http://placeschallenge.csail.mit.edu/data/ChallengeData2017/images.tar). Note that images are the same for all the three tasks in Places Challenge 2017.
+- Download the boundary annotation data at [here](http://placeschallenge.csail.mit.edu/data/ChallengeData2017/boundaries.tar). After untarring the image file and the data file, the directory structure should be similar to the following,
 
 the training images:
 
