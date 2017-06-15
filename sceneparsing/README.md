@@ -7,8 +7,8 @@ The scene parsing is one of the three scene understanding tasks at the [Places C
 
 ## Data 
 
-- Download the images at http://placeschallenge.csail.mit.edu/data/ChallengeData2017/images.tar. Images are the same for all the three tasks in Places Challenge 2017.
-- Download the instance segmentation data at http://placeschallenge.csail.mit.edu/data/ChallengeData2017/instances.tar. After untarring the image file and annotation file, the directory structure should be similar to the following,
+- Download the images at [here](http://placeschallenge.csail.mit.edu/data/ChallengeData2017/images.tar). Images are the same for all the three tasks in Places Challenge 2017.
+- Download the scene parsing data at [here](http://placeschallenge.csail.mit.edu/data/ChallengeData2017/sceneparsing.tar). After untarring the image file and annotation file, the directory structure should be similar to the following,
 
 the training images:
 
@@ -29,15 +29,15 @@ the testing images:
 
 the corresponding instance annotation masks for the training images and validation images:
     
-    annotations_instance/training/ADE_train_00000001.png
-    annotations_instance/training/ADE_train_00000002.png
+    annotations_sceneparsing/training/ADE_train_00000001.png
+    annotations_sceneparsing/training/ADE_train_00000002.png
         ...
-    annotations_instance/training/ADE_train_00020210.png
+    annotations_sceneparsing/training/ADE_train_00020210.png
         
-    annotations_instance/validation/ADE_val_00000001.png
-    annotations_instance/validation/ADE_val_00000002.png
+    annotations_sceneparsing/validation/ADE_val_00000001.png
+    annotations_sceneparsing/validation/ADE_val_00000002.png
         ...
-    annotations_instance/validation/ADE_val_00002000.png
+    annotations_sceneparsing/validation/ADE_val_00002000.png
 
 In each instance annotation mask, balbalba 
 
