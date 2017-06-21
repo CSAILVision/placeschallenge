@@ -1,0 +1,101 @@
+Idx	Object Names		#Inst.	#Pix. per Inst.(*1e3)
+1	bed                	229	53.14
+2	windowpane         	890	10.01
+3	cabinet            	690	13.27
+4	person             	2968	2.87
+5	door               	448	12.87
+6	table              	702	7.40
+7	curtain            	370	13.20
+8	chair              	1333	3.65
+9	car                	1423	2.95
+10	painting           	786	3.62
+11	sofa               	139	21.11
+12	shelf              	216	11.85
+13	mirror             	154	14.77
+14	armchair           	177	9.86
+15	seat               	184	8.32
+16	fence              	217	7.47
+17	desk               	99	12.94
+18	wardrobe           	53	35.17
+19	lamp               	533	2.35
+20	bathtub            	38	29.82
+21	railing            	194	6.59
+22	cushion            	482	2.37
+23	box                	499	2.18
+24	column             	215	5.49
+25	signboard          	730	1.50
+26	chest of drawers   	53	14.20
+27	counter            	45	18.87
+28	sink               	140	5.56
+29	fireplace          	38	22.60
+30	refrigerator       	45	21.11
+31	stairs             	119	8.07
+32	case               	13	58.89
+33	pool table         	22	32.08
+34	pillow             	243	3.93
+35	screen door        	19	38.31
+36	bookcase           	36	13.56
+37	coffee table       	79	9.24
+38	toilet             	56	13.70
+39	flower             	260	1.94
+40	book               	467	1.19
+41	bench              	166	3.99
+42	countertop         	32	14.41
+43	stove              	57	11.54
+44	palm               	110	3.37
+45	kitchen island     	9	37.56
+46	computer           	53	14.40
+47	swivel chair       	97	4.01
+48	boat               	111	3.09
+49	arcade machine     	19	13.55
+50	bus                	37	11.44
+51	towel              	122	3.04
+52	light              	1240	0.35
+53	truck              	53	3.34
+54	chandelier         	72	5.27
+55	awning             	114	2.39
+56	streetlight        	704	0.56
+57	booth              	22	12.93
+58	television receiver	57	6.40
+59	airplane           	31	7.55
+60	apparel            	39	4.22
+61	pole               	221	1.64
+62	bannister          	83	2.95
+63	ottoman            	43	6.39
+64	bottle             	456	0.56
+65	van                	75	2.78
+66	ship               	5	59.17
+67	fountain           	5	75.14
+68	washer             	31	15.19
+69	plaything          	80	1.74
+70	stool              	77	2.68
+71	barrel             	5	1.76
+72	basket             	132	2.06
+73	bag                	186	1.83
+74	minibike           	69	2.65
+75	oven               	21	7.55
+76	ball               	94	0.89
+77	food               	212	2.43
+78	step               	37	7.11
+79	trade name         	154	2.22
+80	microwave          	45	11.26
+81	pot                	273	1.21
+82	animal             	137	3.58
+83	bicycle            	60	1.91
+84	dishwasher         	23	6.95
+85	screen             	13	20.74
+86	sculpture          	26	4.70
+87	hood               	27	6.90
+88	sconce             	201	0.88
+89	vase               	183	0.72
+90	traffic light      	147	1.12
+91	tray               	88	1.63
+92	ashcan             	120	1.51
+93	fan                	52	3.17
+94	plate              	197	1.05
+95	monitor            	34	6.72
+96	bulletin board     	26	6.17
+97	radiator           	30	6.44
+98	glass              	222	1.02
+99	clock              	104	1.01
+100	flag               	106	1.58
