@@ -36,7 +36,8 @@ the corresponding instance annotation masks for the training images and validati
     annotations_instance/validation/ADE_val_00000002.png
         ...
         
-In the instance annotation masks, the R(ed) channel encodes category ID, and the G(reen) channel encodes instance ID. For each object instance, it has a unique instance ID regardless of its category ID. So in the dataset, all images have <256 object instances.
+In the instance annotation masks, the R(ed) channel encodes category ID, and the G(reen) channel encodes instance ID. Each object instance has a unique instance ID regardless of its category ID. 
+In the dataset, all images have <256 object instances.
 
 
 ## Submission format
@@ -53,4 +54,4 @@ The performance of the instance segmentation algorithms will be evaluated by Ave
 For each image, we take at most 256 top-scoring instance masks across all categories.
 For each instance mask prediction, we only count it when its IoU with ground truth is above a certain threshold. We take 10 IoU thresholds of 0.50:0.05:0.95 for evaluation. The final AP is averaged across 10 IoU thresholds and 100 categories.
 
-Sample evaluation code will be released soon.
+You can refer to COCO API for evaluation code: https://github.com/pdollar/coco
