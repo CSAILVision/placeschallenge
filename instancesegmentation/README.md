@@ -13,15 +13,15 @@ the training images:
     images/training/ADE_train_00000001.jpg
     images/training/ADE_train_00000002.jpg
         ...
-    images/training/ADE_train_00020210.jpg
-
+        
 the validation images:
+
     images/training/ADE_train_00000001.jpg
     images/training/ADE_train_00000002.jpg
         ...
-    images/training/ADE_train_00020210.jpg
 
 the testing images:
+
     images/testing/ADE_test_00000001.jpg
         ...
 
@@ -31,14 +31,13 @@ the corresponding instance annotation masks for the training images and validati
     annotations_instance/training/ADE_train_00000001.png
     annotations_instance/training/ADE_train_00000002.png
         ...
-    annotations_instance/training/ADE_train_00020210.png
         
     annotations_instance/validation/ADE_val_00000001.png
     annotations_instance/validation/ADE_val_00000002.png
         ...
-    annotations_instance/validation/ADE_val_00002000.png
+        
+In the instance annotation masks, the R(ed) channel encodes category ID, and the G(reen) channel encodes instance ID. For each object instance, it has a unique instance ID regardless of its category ID. So in the dataset, all images have <256 object instances.
 
-In each instance annotation mask, balbalba 
 
 ## Submission format
 
