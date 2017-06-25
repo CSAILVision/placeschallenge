@@ -6,8 +6,13 @@
 # MATLAB
 *.mex*
 *.mat
+*.m~
+
+# Others
+*.bin
 
 # Exceptions
 !objectName150.mat
 !visualizationCode/color150.mat
 !evaluationCode/cp_src/*.mex*
+evaluationCode/parfor_progress.txt
