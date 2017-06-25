@@ -54,5 +54,6 @@ The performance of the instance segmentation algorithms will be evaluated by Ave
 For each image, we take at most 255 top-scoring instance masks across all categories.
 For each instance mask prediction, we only count it when its IoU with ground truth is above a certain threshold. We take 10 IoU thresholds of 0.50:0.05:0.95 for evaluation. The final AP is averaged across 10 IoU thresholds and 100 categories.
 
-You can refer to COCO API for evaluation code: https://github.com/pdollar/coco
+You can refer to COCO API for evaluation criteria: https://github.com/pdollar/coco
+
 Our evaluation code will be released soon. 
