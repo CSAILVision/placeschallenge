@@ -6,3 +6,8 @@
 # MATLAB
 *.mex*
 *.mat
+
+# Exceptions
+!objectName150.mat
+!visualizationCode/color150.mat
+!evaluationCode/cp_src/*.mex*
