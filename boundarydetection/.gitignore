@@ -1,0 +1,8 @@
+# Data files
+*.png
+*.jpg
+*.log
+
+# MATLAB
+*.mex*
+*.mat
