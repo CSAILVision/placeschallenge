@@ -3,7 +3,6 @@ function resultCat = collect_eval_bdry(resultCatImg)
 % image scale (OIS)
 % Input:
 %   resultCatImg: [Threshold, TP, TP+FN, TP, TP+FP] of every image.
-%   verbose     : Flag choose to display image-wise scores (OIS) or not.
 % Output:
 %   resultCat: 1. [T_ODS, R_ODS, P_ODS, F_ODS, R_OIS, P_OIS, F_OIS, AP]
 %              2. P, R and F values at different thresholds of a category
