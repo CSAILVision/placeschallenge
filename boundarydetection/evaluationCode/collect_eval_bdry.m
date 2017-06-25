@@ -81,12 +81,12 @@ resultCat{1, 1} = [T_ODS, R_ODS, P_ODS, F_ODS, R_OIS, P_OIS, F_OIS, AP];
 resultCat{2, 1} = [thresh, R, P, F];
 end
 
-%% compute f-measure fromm recall and precision
+% compute f-measure fromm recall and precision
 function [f] = fmeasure(r,p)
 f = 2*p.*r./(p+r+((p+r)==0));
 end
 
-%% interpolate to find best F and coordinates thereof
+% interpolate to find best F and coordinates thereof
 function [T_ODS, R_ODS, P_ODS, F_ODS] = maxF(thresh, R, P)
 T_ODS = thresh(1);
 R_ODS = R(1);
