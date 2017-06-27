@@ -42,9 +42,9 @@ validation annotations:
         ...
     annotations_boundary/validation/ADE_val_00002000.mat
 
-Each boundary annotation mat file contains a struct "gt" with two fields named "seg" and "bdry". The "gt.seg" field is a HxWx3 uint8 matrix, with gt.seg(:,:,1) containing the category-level segmentation mask, and gt.seg(:,:,2:3) containing the instance-level mask. Certain images may contain more than 255 instances. Therefore the third seg channel is needed to decode the instance label. The decoding protocol is defined as:
+Each boundary annotation mat file contains a struct "gt" with two fields named "seg" and "bdry". The "gt.seg" field is a HxWx3 uint8 matrix, with gt.seg(:, :, 1) containing the category-level segmentation mask, and gt.seg(:, :, 2:3) containing the instance-level mask. Certain images may contain more than 255 instances. Therefore the third seg channel is needed to decode the instance label. The decoding protocol is defined as:
 
-    labelInst = 256.*int32(gt.seg(:,:,3)) + int32(gt.seg(:,:,2))
+    labelInst = 256.*int32(gt.seg(:, :, 3)) + int32(gt.seg(:, :, 2))
 
 The "gt.bdry" field is a 150x1 cell array of sparse HxW matrices containing category-wise boundary ground truth with single pixel width. The ground truth is generated from the masks in gt.seg and should be used in your evaluation. Similar ground truth will also be used for the final evaluation on the test set.
 
