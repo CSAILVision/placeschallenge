@@ -1,6 +1,8 @@
 % This script demos how to use colorEncode() to visualize predicted
-% boundary maps.
+% boundary maps. 
 % Make sure you have the corresponding files in predDir.
+% To control, press "n" for the next class. Press other key
+% or click figure for the next image
 close all; clc; clear;
 addpath(genpath('evaluationCode'));
 addpath(genpath('visualizationCode'));
@@ -11,7 +13,6 @@ pathGT = fullfile('annotations_boundary', 'validation');
 pathPred = fullfile('predictions_boundary', 'validation'); % Directory to put predicted boundaries
 pathScore = fullfile('result_eval', 'scores');
 numCls = 150;
-showCls = false; % Set true to show class-wise boundary maps
 useODS = true; % Set true to use ODS threshold instead of 0.5
 
 % Load optimal class-wise threshold
@@ -49,63 +50,59 @@ for idxFile = 1:numel(fileLst)
     bdryPredSum = zeros(height, width);
 
     % visualization
-    bdryPredMax = zeros(height, width);
+    bdryPredAll = cell(numCls,1);
     for idxCls = 1:numCls        
         % load class-wise gt and predictions
         bdryGT = full(double(gtLoad.gt.bdry{idxCls}));
         bdryPred = im2double(imread(fullfile(pathPred, ['class_' num2str(idxCls, '%03d')], [fileLst{idxFile} '.png'])));
+        bdryPredAll{idxCls} = bdryPred;
         
         % choose ODS threshold or not
         if(useODS)
-            bdryPredIdx = double(bdryPred > threODS(idxCls));
-            bdryPred(~bdryPredIdx) = 0;
+            bdryPred(bdryPred<=threODS(idxCls)) = 0;
         else
-            bdryPredIdx = double(bdryPred > 0.5);
-            bdryPred(~bdryPredIdx) = 0;
+            bdryPred(bdryPred<=0.5) = 0;
         end
         
         % color encoding
         colorCls = squeeze(double(colorEncode(idxCls, colors)))';
         bdryGTVis = bdryGTVis + reshape(bdryGT(:)*colorCls, [height, width, 3]);
-        % bdryGTVis = bdryGTVis + double(colorEncode(bdryGT.*idxCls, colors));
         bdryGTSum = bdryGTSum + bdryGT;
         bdryPredVis = bdryPredVis + reshape(bdryPred(:)*colorCls, [height, width, 3]);
-        % bdryPredVis = bdryPredVis + repmat(bdryPred, [1 1 3]).*double(colorEncode(idxCls.*ones(height, width), colors));
         bdryPredSum = bdryPredSum + bdryPred;
     end
     bdryGTVis = uint8(bdryGTVis./repmat(bdryGTSum, [1 1 3]));
     bdryPredVis = uint8(bdryPredVis./repmat(bdryPredSum, [1 1 3]));
     
-    fprintf('Press any key to the next image')
-    if(showCls)
+    % visualization
+    fprintf('Press "n" for the next class. Press other key or click figure for the next image\n')
+    for idxCls = 1:numCls
+        % load class-wise gt and predictions
+        bdryGT = full(double(gtLoad.gt.bdry{idxCls}));
+
         % plot figures
-        for idxCls = 1:numCls
-            % load class-wise gt and predictions
-            bdryGT = full(double(gtLoad.gt.bdry{idxCls}));
-            bdryPred = im2double(imread(fullfile(pathPred, ['class_' num2str(idxCls, '%03d')], [fileLst{idxFile} '.png'])));
-            
-            set(gcf, 'Name', [fileLst{idxFile} ' Class ' num2str(idxCls)], 'NumberTitle', 'off');
-            subplot(231);
-            imshow(img); title('Original Image');
-            subplot(232);
-            imshow(bdryGTVis); title('GT All Classes');
-            subplot(233);
-            imshow(bdryPredVis); title('Pred All Classes');
-            subplot(234);
-            imshow(bdryGT); title(['GT Class ' num2str(idxCls)]);
-            subplot(235);
-            imshow(bdryPred); title(['Pred Class ' num2str(idxCls)]);
-            waitforbuttonpress;
-        end
-    else
-        set(gcf, 'Name', [fileLst{idxFile}], 'NumberTitle', 'off');
-        subplot(131);
+        set(gcf, 'Name', [fileLst{idxFile} '  (Press "n" for the next class. Press other key or click figure for the next image)'], 'NumberTitle', 'off');
+        subaxis(2, 3, 1, 'sh', 0.03, 'sv', 0, 'paddingtop', 0.08, 'margin', 0);
         imshow(img); title('Original Image');
-        subplot(132);
+        subaxis(2, 3, 2, 'sh', 0.03, 'sv', 0, 'paddingtop', 0.08, 'margin', 0);
         imshow(bdryGTVis); title('GT All Classes');
-        subplot(133);
+        subaxis(2, 3, 3, 'sh', 0.03, 'sv', 0, 'paddingtop', 0.08, 'margin', 0);
         imshow(bdryPredVis); title('Pred All Classes');
-        waitforbuttonpress;
+        subaxis(2, 3, 4, 'sh', 0.03, 'sv', 0, 'paddingtop', 0.08, 'margin', 0);
+        imshow(bdryGT); title(['GT Class ' num2str(idxCls) ': ' objectNames{idxCls}]);
+        subaxis(2, 3, 5, 'sh', 0.03, 'sv', 0, 'paddingtop', 0.08, 'margin', 0);
+        imshow(bdryPredAll{idxCls}); title(['Prediction Class ' num2str(idxCls) ': ' objectNames{idxCls}]);
+        
+        % press "n" for next class, otherwise jump to next image
+        w = waitforbuttonpress;
+        if(w==1)
+            key = get(gcf,'currentcharacter');
+            if(~strcmp(key, 'n'))
+                break;
+            end
+        else
+            break;
+        end
     end
 end
 
