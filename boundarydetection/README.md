@@ -54,20 +54,20 @@ You may, however, generate your own ground truth from either gt.seg or gt.bdry f
 
 The structure of your submitted result should EXACTLY follow the following example:
 
-    predictions_boundary/testing/class_001/ADE_val_00000001.png
-    predictions_boundary/testing/class_001/ADE_val_00000002.png
+    predictions_boundary/testing/class_001/ADE_test_00000001.png
+    predictions_boundary/testing/class_001/ADE_test_00000002.png
         ...
-    predictions_boundary/testing/class_001/ADE_val_00003000.png
+    predictions_boundary/testing/class_001/ADE_test_00003000.png
 
-    predictions_boundary/testing/class_002/ADE_val_00000001.png
-    predictions_boundary/testing/class_002/ADE_val_00000002.png
+    predictions_boundary/testing/class_002/ADE_test_00000001.png
+    predictions_boundary/testing/class_002/ADE_test_00000002.png
         ...
-    predictions_boundary/testing/class_002/ADE_val_00003000.png
+    predictions_boundary/testing/class_002/ADE_test_00003000.png
         ...
-    predictions_boundary/testing/class_150/ADE_val_00000001.png
-    predictions_boundary/testing/class_150/ADE_val_00000002.png
+    predictions_boundary/testing/class_150/ADE_test_00000001.png
+    predictions_boundary/testing/class_150/ADE_test_00000002.png
         ...
-    predictions_boundary/testing/class_150/ADE_val_00003000.png
+    predictions_boundary/testing/class_150/ADE_test_00003000.png
 
 where subfolders class_001 - class_150 contain the category-wise predicted boundary probability maps for every test image. The boundary maps can either be soft or hard, and must be saved in .png format where 255 indicates probability 1.
 
