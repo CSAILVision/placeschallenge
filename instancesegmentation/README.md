@@ -5,8 +5,8 @@ Scene Instance Segmentation is to segment an image into object instances. The ta
 
 ## Data 
 
-- Download the images at [here](http://placeschallenge.csail.mit.edu/data/ChallengeData2017/images.tar). Note that Images are the same for all the three tasks in Places Challenge 2017.
-- Download the instance segmentation data at [here](http://placeschallenge.csail.mit.edu/data/ChallengeData2017/annotations_instance.tar). After untarring the data file, the directory structure should be similar to the following,
+- Download the images [here](http://placeschallenge.csail.mit.edu/data/ChallengeData2017/images.tar). Note that Images are the same for all the three tasks in Places Challenge 2017.
+- Download the instance segmentation annotations [here](http://placeschallenge.csail.mit.edu/data/ChallengeData2017/annotations_instance.tar). After untarring the data file, the directory structure should be similar to the following,
 
 the training images:
 
