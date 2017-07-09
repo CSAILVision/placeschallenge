@@ -49,8 +49,14 @@ if(verbose)
             idxImg, scoreOIS(2), scoreOIS(3), scoreOIS(4), scoreOIS(5), scoreOIS(6), scoreOIS(7));
         % show image-wise predicted boundaries on a certain class
         if(showFig)
-            set(gcf, 'Name', [fileLst{idxImg} ' Class ' num2str(idxCls) ': ' objectNames{idxCls}],  'NumberTitle','off');
-            imshow(fullfile(predDir, ['class_' num2str(idxCls, '%03d')], [fileLst{idxImg} '.png']))
+            gtLoad = load(fullfile(gtDir, [fileLst{idxImg} '.mat']), 'gt');
+            bdryGT = full(double(gtLoad.gt.bdry{idxCls}));
+            bdryPred = imread(fullfile(predDir, ['class_' num2str(idxCls, '%03d')], [fileLst{idxImg} '.png']));
+            set(gcf, 'Name', [fileLst{idxImg} '  (Press any key or click figure for the next image)'], 'NumberTitle', 'off');
+            subaxis(1, 2, 1, 'sh', 0.03, 'sv', 0, 'paddingtop', 0.08, 'margin', 0);
+            imshow(bdryGT); title(['GT Class ' num2str(idxCls) ': ' objectNames{idxCls}]);
+            subaxis(1, 2, 2, 'sh', 0.03, 'sv', 0, 'paddingtop', 0.08, 'margin', 0);
+            imshow(bdryPred); title(['Prediction Class ' num2str(idxCls) ': ' objectNames{idxCls}]);
             waitforbuttonpress;
         end
     end

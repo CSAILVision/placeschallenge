@@ -46,6 +46,11 @@ matlabVer = version('-release');
 if( str2double(matlabVer(1:4)) > 2013 || (str2double(matlabVer(1:4)) == 2013 && strcmp(matlabVer(5), 'b')) )
     delete(gcp('nocreate'));
     parpool('local', numWorker);
+else
+    if(matlabpool('size')>0) %#ok<*DPOOL>
+        matlabpool close
+    end
+    matlabpool open 8
 end
 
 % Main evaluation loop
