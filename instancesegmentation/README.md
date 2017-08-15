@@ -42,18 +42,25 @@ In the dataset, all images have <256 object instances.
 
 ## Submission format
 
-The submission file should be a single .zip file containing all the predictions in JSON format:
-    
-    ADE_test_00000001.json
-    ADE_test_00000002.json
-        ...
+The submission file should be a single .json file containing all the predictions in RLE:
+
+    [{
+    "image_id" : int,
+    "category_id" : int,
+    "segmentation" : RLE,
+    "score" : float,
+    }]
 
 
 ## Evaluation routines
 The performance of the instance segmentation algorithms will be evaluated by Average Precision (AP, or mAP), following COCO evaluation metrics.
-For each image, we take at most 255 top-scoring instance masks across all categories.
+For each image, we take at most 256 top-scoring instance masks across all categories.
 For each instance mask prediction, we only count it when its IoU with ground truth is above a certain threshold. We take 10 IoU thresholds of 0.50:0.05:0.95 for evaluation. The final AP is averaged across 10 IoU thresholds and 100 categories.
 
-You can refer to COCO API for evaluation criteria: https://github.com/pdollar/coco
+You can refer to COCO evaluation page for more explanation: http://mscoco.org/dataset/#detections-eval
 
-Our evaluation code will be released soon. 
+To run the evaluation demo:
+1. Convert annotations of validation set (*.png) into RLE format (.json), or download HERE
+2. Install COCO API: https://github.com/pdollar/coco
+3. run demoEval.py
+
