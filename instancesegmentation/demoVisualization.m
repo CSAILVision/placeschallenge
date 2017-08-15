@@ -6,7 +6,7 @@ rng(123);
 rootDataset = '.';
 
 % Paths and options
-addpath(genpath('visualizationCode'));
+addpath(genpath('visualization'));
 
 % path to image(.jpg) and annotation(.png)
 pathImg = fullfile(rootDataset, 'images', 'validation');
