@@ -45,7 +45,7 @@ In the dataset, all images have <256 object instances.
 The submission file should be a single .json file containing all the predictions in RLE:
 
     [{
-    "image_id" : int,
+    "image_id" : int,   # IMPORTANT: image_id should match file_name according to imgCatIds.json
     "category_id" : int,
     "segmentation" : RLE,
     "score" : float,
