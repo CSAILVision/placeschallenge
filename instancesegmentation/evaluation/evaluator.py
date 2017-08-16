@@ -16,7 +16,7 @@ class InstanceEvaluator(object):
 		# load predictions
 		self.preds = self.dataset.loadRes(preds_json)
 		self.coco_eval = COCOeval(self.dataset, self.preds, 'segm')
-		self.coco_eval.params.maxDets = [1, 50, 256]
+		self.coco_eval.params.maxDets = [1, 50, 255]
 
 	def evaluate(self):
 		self.coco_eval.evaluate()
@@ -38,7 +38,7 @@ class InstanceEvaluator(object):
 		ap_mean = np.mean(precision[precision > -1])
 		print('MeanAP: {}'.format(ap_mean))
 
-	def _summarize(self, ap=1, iouThr=None, areaRng='all', maxDets=256):
+	def _summarize(self, ap=1, iouThr=None, areaRng='all', maxDets=255):
 		p = self.coco_eval.params
 		iStr = ' {:<18} {} @[ IoU={:<9} | area={:>6s} | maxDets={:>3d} ] = {:0.3f}'
 		titleStr = 'Average Precision' if ap == 1 else 'Average Recall'
