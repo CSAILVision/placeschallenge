@@ -1,12 +1,21 @@
 import numpy as np
+from pycocotools.coco import COCO
 from pycocotools.cocoeval import COCOeval
 
 
 class InstanceEvaluator(object):
-	def __init__(self, dataset, preds_json):
-		self.dataset = dataset
-		self.preds = self.dataset.COCO.loadRes(preds_json)
-		self.coco_eval = COCOeval(dataset.COCO, self.preds, 'segm')
+	def __init__(self, dataset_json, preds_json):
+		# load dataset ground truths
+		self.dataset = COCO(dataset_json)
+		category_ids = self.dataset.getCatIds()
+		categories = [x['name'] for x in self.dataset.loadCats(category_ids)]
+		self.category_to_id_map = dict(zip(categories, category_ids))
+		self.classes = ['__background__'] + categories
+		self.num_classes = len(self.classes)
+
+		# load predictions
+		self.preds = self.dataset.loadRes(preds_json)
+		self.coco_eval = COCOeval(self.dataset, self.preds, 'segm')
 		self.coco_eval.params.maxDets = [1, 50, 256]
 
 	def evaluate(self):

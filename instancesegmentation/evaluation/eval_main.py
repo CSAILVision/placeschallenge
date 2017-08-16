@@ -1,10 +1,10 @@
 # Evaluation demo for places instance segmentation challenge
 # Our evaluation follow the COCO instance segmentation criterion
 # Before running this script:
-# 1. encode annotations(*.png) into RLE format (.json);
-# 2. detections should also be saved as RLE format (.json)
+# 1. encode annotations(*.png) into RLE format (.json) 
+# 	 by running convert_anns_to_json_dataset.py;
+# 2. detection results should also be saved as RLE format (.json)
 
-import pdb
 import os
 import argparse
 import sys
@@ -22,8 +22,7 @@ def parse_args():
 
 
 def eval(args):
-	dataset = JsonDataset(args.dataset_json)
-	evaluator = InstanceEvaluator(dataset, args.preds_json)
+	evaluator = InstanceEvaluator(args.dataset_json, args.preds_json)
 	evaluator.evaluate()
 	evaluator.summarize()
 
