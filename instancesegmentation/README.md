@@ -54,13 +54,14 @@ The submission file should be a single .json file containing all the predictions
 
 ## Evaluation routines
 The performance of the instance segmentation algorithms will be evaluated by Average Precision (AP, or mAP), following COCO evaluation metrics.
-For each image, we take at most 256 top-scoring instance masks across all categories.
+For each image, we take at most 255 top-scoring instance masks across all categories.
 For each instance mask prediction, we only count it when its IoU with ground truth is above a certain threshold. We take 10 IoU thresholds of 0.50:0.05:0.95 for evaluation. The final AP is averaged across 10 IoU thresholds and 100 categories.
 
 You can refer to COCO evaluation page for more explanation: http://mscoco.org/dataset/#detections-eval
 
 To run the evaluation demo:
-1. Convert annotations of validation set (*.png) into RLE format (.json), or download HERE
+1. Convert annotations of validation set (*.png) into RLE format (.json), by running evaluation/convert_anns_to_json_dataset.py
 2. Install COCO API: https://github.com/pdollar/coco
-3. run eval_main.py
+3. Prepare your results in the submission format (.json)
+4. run evaluation/eval_main.py
 
