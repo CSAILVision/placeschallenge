@@ -18,8 +18,8 @@ the training images:
         
 the validation images:
 
-    images/training/ADE_train_00000001.jpg
-    images/training/ADE_train_00000002.jpg
+    images/training/ADE_val_00000001.jpg
+    images/training/ADE_val_00000002.jpg
         ...
 
 the testing images:
