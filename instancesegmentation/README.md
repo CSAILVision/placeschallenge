@@ -1,5 +1,7 @@
 # Instruction for the Instance Segmentation Task
 
+<img src="./images/sample1.png" height="200"/> <img src="./images/sample2.png" height="200"/> <img src="./images/sample3.png" height="200"/>
+
 Scene Instance Segmentation is to segment an image into object instances. The task is pixel-wise classification similar to scene parsing, but it requires the proposed algorithm to extract object instances from the image as well. The motivation of this task is two folds: 1) Push the research of semantic segmentation towards instance segmentation; 2) Let there be more synergy among object detection, semantic segmentation, and the scene parsing. The data share semantic categories with scene parsing task, but comes with object instance annotations for 100 categories. The evaluation metric is Average Precision (AP) over all the 100 semantic categories.
 * We encourage all participants of this task to take part in the COCO instance segmentation challenge as well.
 
@@ -59,9 +61,13 @@ For each instance mask prediction, we only count it when its IoU with ground tru
 
 You can refer to COCO evaluation page for more explanation: http://mscoco.org/dataset/#detections-eval
 
+For everyone's reference, Mask-RCNN with FPN50 achieves 20.0 mAP on the validation set. We thank Kaiming He and Ross Girshick for their support.
+
 To run the evaluation demo:
-1. Convert annotations of validation set (*.png) into RLE format (.json), by running evaluation/convert_anns_to_json_dataset.py
+
+0. cd instancesegmentation/evaluation
+1. Convert annotations of validation set (*.png) into RLE format (.json), by running convert_anns_to_json_dataset.py
 2. Install COCO API: https://github.com/pdollar/coco
 3. Prepare your results in the submission format (.json)
-4. run evaluation/eval_main.py
+4. run eval_main.py
 
