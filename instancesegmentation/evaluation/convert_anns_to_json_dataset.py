@@ -13,7 +13,7 @@ def parse_args():
 	parser = argparse.ArgumentParser(description='Evaluation demo')
 	parser.add_argument('--ann_dir', default='annotations_instance/validation') # CHANGE ACCORDINGLY
 	parser.add_argument('--imgCatIdsFile', default='../imgCatIds.json')
-	parser.add_argument('--output_json', default='./instance_validation_gts2.json')
+	parser.add_argument('--output_json', default='./instance_validation_gts.json')
 	
 	args = parser.parse_args()
 	return args

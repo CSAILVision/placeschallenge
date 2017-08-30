@@ -8,7 +8,6 @@
 import os
 import argparse
 import sys
-from json_dataset import JsonDataset
 from evaluator import InstanceEvaluator
 
 
