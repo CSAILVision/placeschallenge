@@ -11,7 +11,7 @@ from pycocotools import mask as COCOmask
 
 def parse_args():
 	parser = argparse.ArgumentParser(description='Evaluation demo')
-	parser.add_argument('--ann_dir', default='annotations_instance/validation') # CHANGE ACCORDINGLY
+	parser.add_argument('--ann_dir', default='./annotations_instance/validation') # CHANGE ACCORDINGLY
 	parser.add_argument('--imgCatIdsFile', default='../imgCatIds.json')
 	parser.add_argument('--output_json', default='./instance_validation_gts.json')
 	
@@ -22,8 +22,13 @@ def parse_args():
 def convert(args):
 	data_dict = json.load(open(args.imgCatIdsFile, 'r'))
 	img2id = {x['file_name']: x['id'] 
-			 for x in data_dict['images']}
+			  for x in data_dict['images']}
+	img2info = {x['file_name']: x 
+			    for x in data_dict['images']}
 
+	categories = data_dict['categories'] 
+	images = []
+	images_unique = set()
 	annotations = []
 	ann_id = 0
 	# loop over annotation files
@@ -32,8 +37,13 @@ def convert(args):
 		if i % 50 == 0:
 			print('#files processed: {}'.format(i))
 
+		file_name = os.path.basename(file_ann).replace('.png', '.jpg')
+		img_id = img2id[file_name]
+		if file_name not in images_unique:
+			images_unique.add(file_name)
+			images.append(img2info[file_name])
+
 		ann_mask = imread(file_ann)
-		img_id = img2id[os.path.basename(file_ann).replace('.png', '.jpg')]
 		Om = ann_mask[:, :, 0]
 		Oi = ann_mask[:, :, 1]
 
@@ -57,11 +67,12 @@ def convert(args):
 			ann['area'] = np.sum(imask)
 			annotations.append(ann)
 
-	data_dict['annotations'] = annotations
+	# data_dict['annotations'] = annotations
 	print('#files: {}, #instances: {}'.format(len(files_ann), len(annotations)))
 
+	data_out = {'categories': categories, 'images': images, 'annotations': annotations}
 	with open(args.output_json, 'w') as f:
-		json.dump(data_dict, f)
+		json.dump(data_out, f)
 
 
 if __name__ == '__main__':
