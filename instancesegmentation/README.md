@@ -71,5 +71,5 @@ To run the evaluation demo:
 1. Convert annotations of validation set (*.png) into RLE format (.json), by running convert_anns_to_json_dataset.py
 2. Install COCO API: https://github.com/pdollar/coco
 3. Prepare your results in the submission format (.json)
-4. run eval_main.py
+4. python eval_main.py --dataset_json DATASET_JSON --pred_json PRED_JSON
 
