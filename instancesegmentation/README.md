@@ -61,7 +61,9 @@ For each instance mask prediction, we only count it when its IoU with ground tru
 
 You can refer to COCO evaluation page for more explanation: http://mscoco.org/dataset/#detections-eval
 
-For everyone's reference, Mask-RCNN with ResNet-FPN-50 backbone (single-scale training and testing) achieves 20.0 mAP on the validation set. This was achieved by Hang Zhao when he was an intern at Facebook. We thank Kaiming He and Ross Girshick for the code pointers and suggestions.
+For everyone's reference, Mask-RCNN with ResNet-FPN-50 backbone achieves 20.0 mAP on the validation set. (Only backbone is pretrained on ImageNet; RPN+Bbox+Mask are jointly trained; single-scale training and testing.)
+
+This was achieved by Hang Zhao when he was an intern at Facebook. We thank Kaiming He and Ross Girshick for the code pointers and suggestions.
 
 To run the evaluation demo:
 
