@@ -68,8 +68,8 @@ This was achieved by Hang Zhao when he was an intern at Facebook. We thank Kaimi
 
 To run the evaluation demo:
 
-0. cd instancesegmentation/evaluation
-1. Convert annotations of validation set (*.png) into RLE format (.json), by running convert_anns_to_json_dataset.py
+0. ```cd instancesegmentation/evaluation```
+1. Convert annotations of validation set (*.png) into RLE format (.json), by ```python convert_anns_to_json_dataset.py```
 2. Install COCO API: https://github.com/pdollar/coco
 3. Prepare your results in the submission format (.json)
 4. python eval_main.py --dataset_json DATASET_JSON --preds_json PREDS_JSON
